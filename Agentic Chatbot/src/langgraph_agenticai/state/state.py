@@ -1,4 +1,4 @@
-from typing_extensions import TypedDict, list 
+from typing_extensions import TypedDict 
 from typing import Annotated
 from langgraph.graph.message import add_messages
 
