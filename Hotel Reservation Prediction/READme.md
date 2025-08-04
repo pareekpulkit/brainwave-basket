@@ -4,3 +4,6 @@
     - Revenue Management
     - Targeted Marketing 
     - Fraud Detection
+
+### To activate environment
+    .venv\Scripts\activate

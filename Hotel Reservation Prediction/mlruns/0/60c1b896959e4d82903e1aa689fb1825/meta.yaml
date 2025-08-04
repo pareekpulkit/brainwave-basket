@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/user/Desktop/brainwave-basket/Hotel%20Reservation%20Prediction/mlruns/0/60c1b896959e4d82903e1aa689fb1825/artifacts
+end_time: 1754308373450
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 60c1b896959e4d82903e1aa689fb1825
+run_name: mercurial-shark-863
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1754308364122
+status: 3
+tags: []
+user_id: user
