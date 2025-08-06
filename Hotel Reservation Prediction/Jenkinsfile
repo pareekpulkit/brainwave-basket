@@ -6,12 +6,26 @@ pipeline{
     }
 
     stages {
-        stage('Clonig Github repo to Jenkins'){
-            steps{
-                script{
-                    echo 'Clonig Github repo to Jenkins..............'
-                    checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-token', url: 'https://github.com/pareekpulkit/brainwave-basket.git']])
-                    
+        stage('Checkout with sparse checkout') {
+            steps {
+                // Checkout the repo as usual (downloads full .git history, but you’ll prune files next)
+                checkout([$class: 'GitSCM',
+                    branches: [[name: '*/main']],
+                    userRemoteConfigs: [[
+                        url: 'https://github.com/pareekpulkit/brainwave-basket.git',
+                        credentialsId: 'github-token'
+                    ]],
+                    extensions: [
+                        [$class: 'CleanBeforeCheckout'],
+                    ]
+                ])
+                script {
+                    // Enable sparse checkout after the repo is cloned
+                    sh '''
+                    git config core.sparseCheckout true
+                    echo "Hotel Reservation Prediction/" > .git/info/sparse-checkout
+                    git read-tree -mu HEAD
+                    '''
                 }
             }
         }
