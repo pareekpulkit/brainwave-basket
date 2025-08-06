@@ -2,22 +2,32 @@ pipeline {
     agent any
 
     stages {
-        stage('Cloning specific folder from Github repo') {
+       stage('Checkout with sparse checkout') {
             steps {
+                checkout([$class: 'GitSCM',
+                    branches: [[name: '*/main']],
+                    userRemoteConfigs: [[
+                        url: 'https://github.com/pareekpulkit/brainwave-basket.git',
+                        credentialsId: 'github-token'
+                    ]],
+                    extensions: [
+                        // This clears the workspace before checkout
+                        [$class: 'CleanBeforeCheckout'],
+                        // You may also try disabling shallow clone, if necessary
+                    ]
+                ])
+
                 script {
-                    echo 'Cloning specific folder from Github repo...'
-                    checkout scmGit(
-                        branches: [[name: '*/main']],
-                        extensions: [
-                            sparseCheckoutPaths([
-                                sparseCheckoutPath('Hotel Reservation Prediction/') // Specify the folder you want to clone
-                            ])
-                        ],
-                        userRemoteConfigs: [[credentialsId: 'github-token', url: 'https://github.com/pareekpulkit/brainwave-basket.git']]
-                    )
+                    // Enable sparse checkout after the repo is cloned
+                    sh '''
+                    git config core.sparseCheckout true
+                    echo "Hotel Reservation Prediction/" > .git/info/sparse-checkout
+                    git read-tree -mu HEAD
+                    '''
                 }
             }
         }
+    }
 
         // Add your build/deployment stages here, assuming the specific folder is now at the root of the workspace
     }
