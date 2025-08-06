@@ -2,8 +2,9 @@ pipeline {
     agent any
 
     stages {
-       stage('Checkout with sparse checkout') {
+        stage('Checkout with sparse checkout') {
             steps {
+                // Checkout the repo as usual (downloads full .git history, but you’ll prune files next)
                 checkout([$class: 'GitSCM',
                     branches: [[name: '*/main']],
                     userRemoteConfigs: [[
@@ -11,13 +12,9 @@ pipeline {
                         credentialsId: 'github-token'
                     ]],
                     extensions: [
-                        // This clears the workspace before checkout
                         [$class: 'CleanBeforeCheckout'],
-                        // You may also try disabling shallow clone, if necessary
                     ]
                 ])
-            }
-
                 script {
                     // Enable sparse checkout after the repo is cloned
                     sh '''
@@ -28,7 +25,6 @@ pipeline {
                 }
             }
         }
+        // Add your build/deployment stages here!
     }
-
-        // Add your build/deployment stages here, assuming the specific folder is now at the root of the workspace
-    
+}
