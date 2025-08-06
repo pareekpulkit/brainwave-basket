@@ -1,0 +1,136 @@
+/* CSS reset for consistency */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body and Container Styling */
+body {
+  background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Container with shadow and padding */
+.container {
+  background: #fff;
+  max-width: 420px;
+  width: 100%;
+  margin: 32px;
+  border-radius: 18px;
+  box-shadow: 0 6px 32px rgba(16, 48, 64, 0.10), 0 1.5px 5px #dbeafe;
+  padding: 2.5rem 2rem;
+  transition: box-shadow 0.2s;
+}
+
+.container:hover {
+  box-shadow: 0 8px 42px rgba(29, 78, 216, 0.12), 0 2px 8px #60a5fa1a;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #2563eb;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+form {
+  margin-top: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1.3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Labels */
+label {
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: .5rem;
+  transition: color 0.2s;
+  cursor: pointer;
+}
+
+input[type="number"], select {
+  padding: 0.55rem 0.9rem;
+  border: 1.4px solid #dbeafe;
+  border-radius: 8px;
+  background: #f1f5f9;
+  font-size: 1rem;
+  transition: border 0.16s, box-shadow 0.16s;
+  margin-bottom: 0.15rem;
+}
+
+input[type="number"]:focus, select:focus {
+  outline: none;
+  border-color: #60a5fa;
+  background: #eff6ff;
+  box-shadow: 0 0 0 2px #93c5fd64;
+}
+
+/* Button styling */
+button[type="submit"] {
+  background: linear-gradient(90deg, #2df2fd 0%, #2563eb 80%);
+  color: #fff;
+  padding: 0.85rem 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s, transform 0.12s, box-shadow 0.18s;
+  box-shadow: 0 2px 8px #bae6fd21;
+  width: 100%;
+  letter-spacing: 0.5px;
+}
+
+button[type="submit"]:hover, button[type="submit"]:focus {
+  background: linear-gradient(90deg, #2563eb 10%, #2df2fd 90%);
+  transform: translateY(-2px) scale(1.025);
+  box-shadow: 0 4px 16px #2563eb33;
+}
+
+/* Result Message Styling */
+.result {
+  margin-top: 2rem;
+  padding: 1.1rem;
+  border-radius: 10px;
+  background: #f1f5f9;
+  text-align: center;
+  font-size: 1.12rem;
+  font-weight: 500;
+  animation: fadeInResult 0.8s cubic-bezier(.33,1,.68,1);
+}
+
+.result p {
+  color: #be185d;
+}
+
+.result p:nth-child(2) {
+  color: #22c55e;
+}
+
+@keyframes fadeInResult {
+  0% { opacity: 0; transform: translateY(15px);}
+  100% { opacity: 1; transform: translateY(0);}
+}
+
+/* Responsive Design */
+@media (max-width: 540px) {
+  .container {
+    padding: 1.25rem .75rem;
+    max-width: 600px;
+    min-width: 0;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+}

@@ -6,5 +6,5 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = ["pandas", "numpy", "google-cloud-storage", "scikit-learn", "pyyaml",
     "matplotlib", "seaborn", "statsmodels", "imbalanced-learn", "ipykernel",
-    "xgboost", "lightgbm","mlflow", "setuptools"]
+    "xgboost", "lightgbm","mlflow", "setuptools", "flask"]
 
