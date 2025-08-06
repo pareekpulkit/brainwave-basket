@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Cloning specific folder from Github repo') {
+            steps {
+                script {
+                    echo 'Cloning specific folder from Github repo...'
+                    checkout scmGit(
+                        branches: [[name: '*/main']],
+                        extensions: [
+                            sparseCheckoutPaths([
+                                sparseCheckoutPath('Hotel Reservation Prediction/') // Specify the folder you want to clone
+                            ])
+                        ],
+                        userRemoteConfigs: [[credentialsId: 'github-token', url: 'https://github.com/pareekpulkit/brainwave-basket.git']]
+                    )
+                }
+            }
+        }
+
+        // Add your build/deployment stages here, assuming the specific folder is now at the root of the workspace
+    }
+}
