@@ -34,8 +34,6 @@ pipeline{
                 script{
                     echo 'Setting up our virtual Environment..............'
                     sh '''
-                    apt-get update
-                    apt-get install python3-venv
                     python -m venv  ${VENV_DIR}
                     .${VENV_DIR}/bin/activate
                     pip install --upgrade pip 
