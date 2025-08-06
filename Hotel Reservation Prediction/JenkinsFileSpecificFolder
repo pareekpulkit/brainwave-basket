@@ -16,6 +16,7 @@ pipeline {
                         // You may also try disabling shallow clone, if necessary
                     ]
                 ])
+            }
 
                 script {
                     // Enable sparse checkout after the repo is cloned
@@ -30,5 +31,4 @@ pipeline {
     }
 
         // Add your build/deployment stages here, assuming the specific folder is now at the root of the workspace
-    }
-}
+    
