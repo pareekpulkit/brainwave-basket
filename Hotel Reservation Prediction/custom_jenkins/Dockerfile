@@ -1,3 +1,5 @@
+## Setting up Jenkins Container
+
 # Use the Jenkins image as the base image
 FROM jenkins/jenkins:lts
 
@@ -23,4 +25,5 @@ VOLUME /var/lib/docker
 
 # Switch back to the Jenkins user
 USER jenkins
+
 
