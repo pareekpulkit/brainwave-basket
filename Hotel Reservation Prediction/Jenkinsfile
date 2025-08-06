@@ -59,7 +59,9 @@ pipeline{
                     gcloud config set project ${GCP_PROJECT}
 
                     gcloud auth configure-docker --quiet
+                    ls
                     cd "/var/jenkins_home/workspace/hotel-reservation-prediction/Hotel Reservation Prediction"
+                    ls
                     docker build -t gcr.io/${GCP_PROJECT}/hotel-reservation-pred .
                     docker push gcr.io/${GCP_PROJECT}/hotel-reservation-pred 
 
