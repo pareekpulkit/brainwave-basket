@@ -62,7 +62,7 @@ pipeline{
                     ls
                     cd "/var/jenkins_home/workspace/hotel-reservation-prediction/Hotel Reservation Prediction"
                     ls
-                    docker build -t gcr.io/${GCP_PROJECT}/hotel-reservation-pred .
+                    docker build -t gcr.io/${GCP_PROJECT}/hotel-reservation-pred:latest .
                     docker push gcr.io/${GCP_PROJECT}/hotel-reservation-pred 
 
                     '''
