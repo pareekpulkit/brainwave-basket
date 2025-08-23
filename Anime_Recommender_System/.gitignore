@@ -1,2 +1,10 @@
 *.csv
 *.json
+*.pkl
+venv
+artifacts/raw/
+artifacts/processed/
+artifacts/weights/
+artifacts/model/
+artifacts/model_checkpoint/
+anime_recommender_system.egg-info 

@@ -5,7 +5,8 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "pandas","google-cloud-storage","numpy","pyyaml"
+    "pandas","google-cloud-storage","numpy","pyyaml","ipykernel","tensorflow",
+    "matplotlib", "wordcloud","joblib", "comet_ml", "dvc"
 ]
 [tool.distutils.egg_info]
 egg_base = "."

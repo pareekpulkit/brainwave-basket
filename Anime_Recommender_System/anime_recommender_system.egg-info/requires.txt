@@ -2,3 +2,10 @@ pandas
 google-cloud-storage
 numpy
 pyyaml
+ipykernel
+tensorflow
+matplotlib
+wordcloud
+joblib
+comet_ml
+dvc
