@@ -6,7 +6,7 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "pandas","google-cloud-storage","numpy","pyyaml","ipykernel","tensorflow",
-    "matplotlib", "wordcloud","joblib", "comet_ml", "dvc"
+    "matplotlib", "wordcloud","joblib", "comet_ml", "dvc", "dvc-gs", "flask"
 ]
 [tool.distutils.egg_info]
 egg_base = "."

@@ -15,3 +15,5 @@ Requires-Dist: wordcloud
 Requires-Dist: joblib
 Requires-Dist: comet_ml
 Requires-Dist: dvc
+Requires-Dist: dvc-gs
+Requires-Dist: flask
