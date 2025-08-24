@@ -55,7 +55,9 @@ pipeline{
                     script{
                         echo 'DVC Pull....'
                         sh '''
+                        cd "Anime_Recommender_System"
                         . ${VENV_DIR}/bin/activate
+                        echo "Virtual Environment activated"
                         dvc pull
                         '''
                     }
