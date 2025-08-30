@@ -76,6 +76,7 @@ pipeline{
                         gcloud auth activate-service-account --key-file=${GOOGLE_APPLICATION_CREDENTIALS}
                         gcloud config set project ${GCP_PROJECT}
                         gcloud auth configure-docker --quiet
+                        cd "/var/jenkins_home/workspace/anime_recomm_pipeline/Anime_Recommender_System"
                         docker build -t gcr.io/${GCP_PROJECT}/anime-recom-project:latest .
                         docker push gcr.io/${GCP_PROJECT}/anime-recom-project:latest
                         '''
